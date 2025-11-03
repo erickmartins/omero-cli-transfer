@@ -713,7 +713,7 @@ class TransferControl(GraphControl):
         cli.loadplugins()
         dest_map = {}
         for filepath in filelist:
-            dest_path = str(posixpath.join(folder,  '.', filepath))
+            dest_path = str(posixpath.join(folder.as_posix(),  '.', filepath))
             command = ['import', dest_path]
             if ln_s:
                 command.append('--transfer=ln_s')
