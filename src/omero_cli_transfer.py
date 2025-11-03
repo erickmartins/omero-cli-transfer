@@ -621,6 +621,7 @@ class TransferControl(GraphControl):
             folder = Path(args.filepath).resolve().as_posix()
             ome = from_xml(posixpath.join(folder, "transfer.xml"))
             hash = "imported from folder"
+            folder = Path(folder)
         logger.info("Generating Image mapping and import filelist...")
         ome, src_img_map, filelist = self._create_image_map(ome)
         logger.info("Importing data as orphans...")
