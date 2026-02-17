@@ -454,6 +454,10 @@ class TransferControl(GraphControl):
                                  ) -> OME:
         newome = copy.deepcopy(ome)
         for ann in ome.structured_annotations:
+            try:
+                isinstance(ann.value, str)
+            except AttributeError:
+                continue
             if isinstance(ann.value, str) and\
                ann.value.startswith("pixel_images"):
                 for img in newome.images:
